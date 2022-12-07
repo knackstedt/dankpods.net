@@ -8,73 +8,52 @@
 // Be sure that you only ever include this mixin once!
 @include mat.core();
 
-// // Define the palettes for your theme using the Material Design palettes available in palette.scss
-// // (imported above). For each palette, you can optionally specify a default, lighter, and darker
-// // hue. Available color palettes: https://material.io/design/color/
-// $app-primary: mat.define-palette(mat.$indigo-palette);
-// $app-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
-
-// // The warn palette is optional (defaults to red).
-// $app-warn: mat.define-palette(mat.$red-palette);
-
-// // Create the theme object. A theme consists of configurations for individual
-// // theming systems such as "color" or "typography".
-// $app-theme: mat.define-dark-theme((color: (
-//                 primary: $app-primary,
-//                 accent: $app-accent,
-//                 warn: $app-warn,
-//             )));
-
-// // Include theme styles for core and each component used in your app.
-// // Alternatively, you can import and @include the theme mixins for each component
-// // that you are using.
-// @include mat.all-component-themes($app-theme);
-
-
-
-
-
-$light-app-theme: mat.define-light-theme((color: (
-    primary: mat.define-palette(mat.$indigo-palette),
-    accent: mat.define-palette(mat.$pink-palette, A200, A100, A400),
-    warn: mat.define-palette(mat.$red-palette),
-)));
 
 $dark-app-theme: mat.define-dark-theme((color: (
-    primary: mat.define-palette(mat.$cyan-palette),
-    accent: mat.define-palette(mat.$blue-gray-palette, A200, A100, A400),
+    primary: mat.define-palette(mat.$lime-palette),
+    accent: mat.define-palette(mat.$yellow-palette, A200, A100, A400),
     warn: mat.define-palette(mat.$amber-palette),
 )));
 
 @include mat.all-component-themes($dark-app-theme);
 
-.dark-theme {
-    @include mat.all-component-colors($dark-app-theme);
-}
-
-
-/* You can add global styles to this file, and also import other style files */
-
-
-.mat-form-field-appearance-outline .mat-form-field-outline {
-    color: transparent;
-}
-
-/*
- * All styles below are customized overrides of the base material
- * theme system
- * 
- */
 
 .mat-progress-spinner circle,
 .mat-spinner circle {
     stroke: white;
 }
 
-
-.cdk-overlay-container .mat-dialog-container {
-    padding: 0;
+.mat-toolbar {
+    background: #1b5e20;
 }
 
+.mat-button, .mat-button a {
 
+    font-size: large;
+    text-decoration: none;
+    color: #ccc;
+    padding: 4px 12px;
+    border-bottom: 2px solid transparent;
+    transition: all .4s ease-in-out;
 
+    &:hover {
+        color: #fff;
+        border-color: #7cca65;
+    }
+}
+
+.mat-tab-group,
+.mat-tab-body-wrapper {
+    height: 100%;
+}
+
+.mat-drawer {
+    background-color: #2e7d32;
+    .mat-button,
+    .mat-button a {
+        color: #fff;
+    }
+}
+mat-dialog-container {
+    max-height: 80vh!important;
+}

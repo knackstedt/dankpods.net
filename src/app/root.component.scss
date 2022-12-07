@@ -2,6 +2,8 @@
     height: 100%;
     width: 100%;
     display: flex;
+    position: relative;
+    flex-direction: column;
 }
 
 .root {
@@ -29,4 +31,10 @@
             color: #fff;
         }
     }
+}
+
+
+ul.links {
+    list-style: none;
+    padding: 0;
 }

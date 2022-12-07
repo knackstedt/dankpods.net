@@ -1,14 +1,19 @@
-import { NgModule } from '@angular/core';
+import { isDevMode, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { RootComponent } from './root.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
-import { MaterialModule } from './material.module';
 import { PortalModule } from '@angular/cdk/portal';
 import { CommonModule } from '@angular/common';
 import { ServiceWorkerModule } from '@angular/service-worker';
-import { environment } from '../environment';
+
+import { MatButtonModule } from '@angular/material/button';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatIconModule } from '@angular/material/icon';
+import { MatSidenavModule } from '@angular/material/sidenav';
+
+import { RootComponent } from './root.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
     declarations: [
@@ -18,11 +23,15 @@ import { environment } from '../environment';
         CommonModule,
         BrowserModule,
         BrowserAnimationsModule,
-        MaterialModule,
         PortalModule,
         HttpClientModule,
+        MatButtonModule,
+        MatToolbarModule,
+        MatSidenavModule,
+        MatDialogModule,
+        MatIconModule,
         ServiceWorkerModule.register('ngsw-worker.js', {
-          enabled: environment.production,
+          enabled: !isDevMode(),
           // Register the ServiceWorker as soon as the application is stable
           // or after 30 seconds (whichever comes first).
           registrationStrategy: 'registerWhenStable:30000'
