@@ -37,6 +37,7 @@ export class RootComponent {
         { url: "https://www.youtube.com/channel/UCHdpnvKJDijKNe2caIasnww", label: "Garbage Time" },
         { url: "https://www.youtube.com/@thedrumthing4665", label: "The Drum Thing" },
         { url: "https://www.youtube.com/channel/UCfITAHFPUbFwCbMYrhMJJCw", label: "Dankmus" },
+        { url: "https://dankpods-dankstore-3.creator-spring.com", label: "Merch"}
     ]
 
     constructor(
@@ -66,6 +67,6 @@ export class RootComponent {
             this.isDesktop = false;
 
         if (this.isDesktop)
-            this.drawer.close()
+            this.drawer?.close()
     }
 }

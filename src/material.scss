@@ -57,3 +57,8 @@ $dark-app-theme: mat.define-dark-theme((color: (
 mat-dialog-container {
     max-height: 80vh!important;
 }
+
+mat-drawer-content.mat-drawer-content {
+    display: flex;
+    flex-direction: column;
+}
