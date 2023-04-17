@@ -1,0 +1,90 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: dankpods.net-ingress
+  namespace: dankpods
+spec:
+  entryPoints:
+   - web
+  routes:
+    - match: Host(`dankpods.net`) || Host(`www.dankpods.net`)
+      kind: Rule
+      services:
+      - name: dankpods-server
+        port: 80
+
+---
+
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: dankpods.net-ingress
+  namespace: dankpods
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - kind: Rule
+      match: Host(`dankpods.net`) || Host(`www.dankpods.net`)
+      services:
+        - name: dankpods-server
+          port: 80
+  tls:
+    secretName: dankpods.net-tls
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: dankpods-server
+  namespace: dankpods
+spec:
+  selector:
+    app: dankpods-server
+  ports:
+  - protocol: "TCP"
+    port: 80
+    targetPort: 80
+  type: LoadBalancer
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dankpods-server
+  namespace: dankpods
+spec:
+  selector:
+    matchLabels:
+      app: dankpods-server
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: dankpods-server
+    spec:
+      containers:
+      - name: dankpods
+        image: dankpods:latest
+        ports:
+        - containerPort: 80
+
+---
+
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: dankpods.net
+  namespace: dankpods
+spec:
+  commonName: dankpods.net
+  dnsNames:
+    - dankpods.net
+  issuerRef:
+    kind: ClusterIssuer
+    name: letsencrypt-prod
+  secretName: dankpods.net-tls
+
+
