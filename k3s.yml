@@ -43,7 +43,7 @@ spec:
   - protocol: "TCP"
     port: 80
     targetPort: 80
-  type: LoadBalancer
+  type: ClusterIP
 
 ---
 
@@ -66,9 +66,9 @@ spec:
         image: dankpods:latest
         ports:
         - containerPort: 80
-        imagePullSecrets:
-        - name: harbor-key
-          namespace: kube-system
+      imagePullSecrets:
+      - name: harbor-key
+        namespace: kube-system
 
 ---
 
