@@ -6,7 +6,7 @@ spec:
   entryPoints:
    - web
   routes:
-    - match: Host(`dev.dankpods.net`)
+    - match: Host(`dankpods.net`) || Host(`www.dankpods.net`)
       kind: Rule
       services:
       - name: dankpods-server
@@ -23,7 +23,7 @@ spec:
     - websecure
   routes:
     - kind: Rule
-      match: Host(`dev.dankpods.net`)
+      match: Host(`dankpods.net`) || Host(`www.dankpods.net`)
       services:
         - name: dankpods-server
           port: 80
@@ -81,7 +81,7 @@ spec:
     - dankpods.net
   issuerRef:
     kind: ClusterIssuer
-    name: letsencrypt-stage
+    name: letsencrypt-prod
   secretName: dankpods.net-tls
 
 
