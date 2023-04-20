@@ -63,7 +63,7 @@ spec:
     spec:
       containers:
       - name: dankpods
-        image: dankpods:latest
+        image: harbor.dotglitch.dev/library/dankpods:latest
         ports:
         - containerPort: 80
       imagePullSecrets:
