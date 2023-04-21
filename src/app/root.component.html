@@ -1,8 +1,4 @@
 <mat-drawer-container class="root" [style.background-image]="'url(' + wallpaper.value?.link + ')'" autosize>
-    <!-- <mat-tab-group (selectedTabChange)="onTabChange($event)">
-        <mat-tab disabled="true"><ng-template mat-tab-label></ng-template></mat-tab>
-        <mat-tab *ngFor="let link of headLinks"><ng-template mat-tab-label><a [href]="link.url">{{link.label}}</a></ng-template></mat-tab>
-    </mat-tab-group> -->
     <mat-drawer #drawer mode="side">
         <ul class="links">
             <li *ngFor="let link of headLinks">

@@ -3,15 +3,9 @@ import { Fetch } from 'src/app/services/fetch.service';
 import { environment } from 'src/environment';
 import { KeyboardService } from './services/keyboard.service';
 import { WallpaperService } from './services/wallpaper.service';
-
-// import Swiper core and required modules
-import SwiperCore, { Lazy, Pagination, Navigation, Virtual, Keyboard,  } from "swiper";
 import { MatDrawer } from '@angular/material/sidenav';
 import { MatDialog } from '@angular/material/dialog';
 import { AboutComponent } from './dialogs/about/about.component';
-
-// install Swiper modules
-SwiperCore.use([Lazy, Pagination, Navigation, Virtual, Keyboard]);
 
 const desktopWidth = 1126;
 
@@ -37,7 +31,8 @@ export class RootComponent {
         { url: "https://www.youtube.com/channel/UCHdpnvKJDijKNe2caIasnww", label: "Garbage Time" },
         { url: "https://www.youtube.com/@thedrumthing4665", label: "The Drum Thing" },
         { url: "https://www.youtube.com/channel/UCfITAHFPUbFwCbMYrhMJJCw", label: "Dankmus" },
-        { url: "https://dankpods-dankstore-3.creator-spring.com", label: "Merch"}
+        { url: "https://dankpods-dankstore-3.creator-spring.com", label: "Merch"},
+        { url: "https://www.youtube.com/@Games_for_James", label: "James"}
     ]
 
     constructor(
