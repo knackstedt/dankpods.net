@@ -44,10 +44,6 @@ export class RootComponent {
         this.onResize();
     }
 
-    onButtonClick(link) {
-        window.location.href = link.url;
-    }
-
     openInfo() {
         this.dialog.open(AboutComponent);
     }

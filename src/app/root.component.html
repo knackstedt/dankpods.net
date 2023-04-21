@@ -2,7 +2,7 @@
     <mat-drawer #drawer mode="side">
         <ul class="links">
             <li *ngFor="let link of headLinks">
-                <button mat-button (click)="onButtonClick(link)">
+                <button mat-button>
                     <a [href]="link.url" target="_blank">{{link.label}}</a>
                 </button>
             </li>
@@ -17,8 +17,8 @@
             </button>
         </ng-container>
         <ng-container *ngIf="isDesktop">
-            <button mat-button *ngFor="let link of headLinks" (click)="onButtonClick(link)">
-                <a [href]="link.url">{{link.label}}</a>
+            <button mat-button *ngFor="let link of headLinks">
+                <a [href]="link.url" target="_blank">{{link.label}}</a>
             </button>
             <button mat-icon-button (click)="openInfo()"><mat-icon>info</mat-icon></button>
         </ng-container>
