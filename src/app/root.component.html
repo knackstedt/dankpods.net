@@ -3,7 +3,7 @@
         <ul class="links">
             <li *ngFor="let link of headLinks">
                 <button mat-button (click)="onButtonClick(link)">
-                    <a [href]="link.url">{{link.label}}</a>
+                    <a [href]="link.url" target="_blank">{{link.label}}</a>
                 </button>
             </li>
         </ul>
