@@ -44,14 +44,16 @@ $app-theme: mat.define-dark-theme((
 }
 
 .mat-drawer {
-    background-color: #2e7d32;
+    background-color: #80d5759c;
     .mat-button,
     .mat-button a {
         color: #fff;
     }
 }
-mat-dialog-container {
+
+.mat-dialog-container {
     max-height: 80vh!important;
+    border-radius: 9px;
 }
 
 mat-drawer-content.mat-drawer-content {

@@ -2,9 +2,11 @@
     <mat-drawer #drawer mode="side">
         <ul class="links">
             <li *ngFor="let link of headLinks">
-                <button mat-flat-button color="accent">
-                    <a [href]="link.url" target="_blank">{{link.label}}</a>
-                </button>
+                <a [href]="link.url" target="_blank">
+                    <button mat-button>
+                        {{link.label}}
+                    </button>
+                </a>
             </li>
         </ul>
         <button mat-icon-button (click)="openInfo()" style="position: absolute; bottom: 16px; left: 16px;"><mat-icon>info</mat-icon></button>
@@ -32,8 +34,8 @@
                     <button mat-button>
                         Shop
                     </button>
+                    <button mat-icon-button (click)="openInfo()"><mat-icon>info</mat-icon></button>
                 </a>
-                <!-- <button mat-icon-button (click)="openInfo()"><mat-icon>info</mat-icon></button> -->
             </ng-container>
         </mat-toolbar>
 
