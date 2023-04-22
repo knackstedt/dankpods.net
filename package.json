@@ -1,6 +1,6 @@
 {
   "name": "dankpods",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "scripts": {
     "ng": "ng",
     "start": "ng serve --port 4200 --ssl --proxy-config ./proxy.config.json",
