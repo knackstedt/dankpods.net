@@ -56,6 +56,7 @@ export class RootComponent {
         else
             this.isDesktop = false;
 
+        // Close the drawer if a resize expands to show desktop buttons
         if (this.isDesktop)
             this.drawer?.close()
     }
