@@ -81,7 +81,7 @@ spec:
     - dankpods.net
   issuerRef:
     kind: ClusterIssuer
-    name: letsencrypt-stage
+    name: letsencrypt-prod
   secretName: dev.dankpods.net-tls
 
 
