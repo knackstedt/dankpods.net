@@ -8,14 +8,20 @@
 // Be sure that you only ever include this mixin once!
 @include mat.core();
 
+$app-typography: mat.define-typography-config(
+    $font-family: 'Fira Sans',
+);
 
-$dark-app-theme: mat.define-dark-theme((color: (
-    primary: mat.define-palette(mat.$lime-palette),
-    accent: mat.define-palette(mat.$yellow-palette, A200, A100, A400),
-    warn: mat.define-palette(mat.$amber-palette),
-)));
+$app-theme: mat.define-dark-theme((
+    color: (
+        primary: mat.define-palette(mat.$green-palette, A200),
+        accent: mat.define-palette(mat.$green-palette, A400),
+        warn: mat.define-palette(mat.$amber-palette, 900),
+    ),
+    typography: $app-typography
+));
 
-@include mat.all-component-themes($dark-app-theme);
+@include mat.all-component-themes($app-theme);
 
 
 .mat-progress-spinner circle,
@@ -24,22 +30,12 @@ $dark-app-theme: mat.define-dark-theme((color: (
 }
 
 .mat-toolbar {
-    background: #1b5e20;
+    background: #80d5759c;
+    height: 96px;
 }
 
-.mat-button, .mat-button a {
-
-    font-size: large;
-    text-decoration: none;
-    color: #ccc;
-    padding: 4px 12px;
-    border-bottom: 2px solid transparent;
-    transition: all .4s ease-in-out;
-
-    &:hover {
-        color: #fff;
-        border-color: #7cca65;
-    }
+.mat-button {
+    font-size: 15px;
 }
 
 .mat-tab-group,
@@ -62,3 +58,4 @@ mat-drawer-content.mat-drawer-content {
     display: flex;
     flex-direction: column;
 }
+

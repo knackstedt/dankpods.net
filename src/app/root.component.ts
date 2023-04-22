@@ -13,8 +13,7 @@ const desktopWidth = 1126;
 @Component({
     selector: 'app-root',
     templateUrl: './root.component.html',
-    styleUrls: ['./root.component.scss'],
-    encapsulation: ViewEncapsulation.None
+    styleUrls: ['./root.component.scss']
 })
 export class RootComponent {
     @ViewChild("drawer") drawer: MatDrawer;
@@ -31,7 +30,7 @@ export class RootComponent {
         { url: "https://www.youtube.com/channel/UCHdpnvKJDijKNe2caIasnww", label: "Garbage Time" },
         { url: "https://www.youtube.com/@thedrumthing4665", label: "The Drum Thing" },
         { url: "https://www.youtube.com/channel/UCfITAHFPUbFwCbMYrhMJJCw", label: "Dankmus" },
-        { url: "https://dankpods-dankstore-3.creator-spring.com", label: "Merch"},
+        // { url: "https://dankpods-dankstore-3.creator-spring.com", label: "Merch"},
         { url: "https://www.youtube.com/@Games_for_James", label: "James"}
     ]
 

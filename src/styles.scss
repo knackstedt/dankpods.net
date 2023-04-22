@@ -2,12 +2,15 @@
 
 @import "material.scss";
 @import "@fontsource/material-icons";
-@import "@fontsource/fira-sans";
+@import "@fontsource/fira-sans/100";
+@import "@fontsource/fira-sans/200";
+@import "@fontsource/fira-sans/300";
+@import "@fontsource/fira-sans/400";
+@import "@fontsource/fira-sans/500";
+@import "@fontsource/fira-sans/600";
 
 body { margin: 0 }
 html, body {
-    background: #242424;
-    color: #eee;
     height: 100%;
     width: 100%;
     overflow: hidden;
@@ -16,41 +19,4 @@ html, body {
 
 * {
     box-sizing: border-box;
-    user-select: none;
-}
-
-p, span {
-    user-select: all;
-}
-
-
-a {
-    color: #fff;
-}
-
-::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
-    background-color: transparent;
-}
-
-::-webkit-scrollbar-thumb {
-    padding-right: 6px;
-    border-radius: 10px;
-    background-color: #696766;
-}
-
-::-webkit-scrollbar-track {
-    border-radius: 10px;
-    background-color: transparent;
-}
-
-::-webkit-scrollbar-corner {
-    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-}
-
-
-.swiper {
-    width: 100%;
-    height: 100%;
 }
