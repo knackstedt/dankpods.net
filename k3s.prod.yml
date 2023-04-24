@@ -79,6 +79,7 @@ spec:
   commonName: dankpods.net
   dnsNames:
     - dankpods.net
+    - www.dankpods.net
   issuerRef:
     kind: ClusterIssuer
     name: letsencrypt-prod
