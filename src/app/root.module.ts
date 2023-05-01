@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
-import { PortalModule } from '@angular/cdk/portal';
 import { CommonModule } from '@angular/common';
 import { ServiceWorkerModule } from '@angular/service-worker';
 
@@ -14,6 +13,8 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 
 import { RootComponent } from './root.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MusicLibraryComponent } from 'src/app/music-library/music-library.component';
+import { MatTabsModule } from '@angular/material/tabs';
 
 @NgModule({
     declarations: [
@@ -23,8 +24,9 @@ import { MatDialogModule } from '@angular/material/dialog';
         CommonModule,
         BrowserModule,
         BrowserAnimationsModule,
-        PortalModule,
+        MusicLibraryComponent,
         HttpClientModule,
+        MatTabsModule,
         MatButtonModule,
         MatToolbarModule,
         MatSidenavModule,

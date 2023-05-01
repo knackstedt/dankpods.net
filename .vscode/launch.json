@@ -15,7 +15,7 @@
       "request": "launch",
       "args": [
         "main.ts",
-        "--project"      
+        "--project"
       ],
       "runtimeArgs": [
         "--nolazy",
@@ -24,18 +24,6 @@
       ],
       "sourceMaps": true,
       "cwd": "${workspaceRoot}/server",
-    },
-    {
-      "name": "XPRA",
-      "preLaunchTask": "xpra",
-      "type": "msedge",
-      "request": "attach"
-    },
-    {
-      "name": "Broadway",
-      "preLaunchTask": "broadway",
-      "type": "msedge",
-      "request": "attach"
     }
   ]
 }

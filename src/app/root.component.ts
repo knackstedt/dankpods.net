@@ -30,9 +30,11 @@ export class RootComponent {
         { url: "https://www.youtube.com/channel/UCHdpnvKJDijKNe2caIasnww", label: "Garbage Time" },
         { url: "https://www.youtube.com/@thedrumthing4665", label: "The Drum Thing" },
         { url: "https://www.youtube.com/channel/UCfITAHFPUbFwCbMYrhMJJCw", label: "Dankmus" },
-        // { url: "https://dankpods-dankstore-3.creator-spring.com", label: "Merch"},
-        { url: "https://www.youtube.com/@Games_for_James", label: "James"}
-    ]
+        { url: "https://www.youtube.com/@Games_for_James", label: "James"},
+        { url: "https://dankpods-dankstore-3.creator-spring.com", label: "Shop"},
+    ];
+
+    tabIndex = 0;
 
     constructor(
         private fetch: Fetch,

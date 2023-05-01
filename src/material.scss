@@ -24,26 +24,21 @@ $app-theme: mat.define-dark-theme((
 @include mat.all-component-themes($app-theme);
 
 
-.mat-progress-spinner circle,
-.mat-spinner circle {
-    stroke: white;
-}
-
 .mat-toolbar {
     background: #80d5759c;
     height: 96px;
 }
 
-.mat-button {
+.mat-mdc-button {
     font-size: 15px;
 }
 
-.mat-tab-group,
-.mat-tab-body-wrapper {
+.mat-mdc-tab-group,
+.mat-mdc-tab-body-wrapper {
     height: 100%;
 }
 
-.mat-drawer {
+.mat-mdc-drawer {
     background-color: #80d5759c;
     .mat-button,
     .mat-button a {
@@ -61,3 +56,10 @@ mat-drawer-content.mat-drawer-content {
     flex-direction: column;
 }
 
+.mat-mdc-tab-label-container {
+    background: #00000088;
+}
+
+.mat-mdc-tab-body.mat-mdc-tab-body-active {
+    overflow: hidden !important;
+}

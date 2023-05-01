@@ -29,33 +29,40 @@
                         {{link.label}}
                     </button>
                 </a>
-
-                <a href="https://dankpods-dankstore-3.creator-spring.com" target="_blank">
-                    <button mat-button>
-                        Shop
-                    </button>
-                    <button mat-icon-button (click)="openInfo()"><mat-icon>info</mat-icon></button>
-                </a>
+                <button mat-icon-button (click)="openInfo()"><mat-icon>info</mat-icon></button>
             </ng-container>
         </mat-toolbar>
 
-        <div class="mainstage">
-            <iframe width="1280" height="720" src="https://www.youtube.com/embed/x1hvDqNcnEk"
-                title="The worst headphones I&#39;ve bought." frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen
-            ></iframe>
-            <div class="callout">
-                <h1>
-                    If it runs on electricity there's a chance I'll yell at it.
-                </h1>
-                <a href="https://www.youtube.com/c/DankPods" target="_blank">
-                    <button mat-flat-button color="primary">
-                        Youtube
-                        <mat-icon>open_in_new</mat-icon>
-                    </button>
-                </a>
-            </div>
-        </div>
+        <mat-tab-group class="maintabs" [selectedIndex]="tabIndex">
+            <mat-tab>
+                <div class="mainstage">
+                    <iframe width="1280" height="720" src="https://www.youtube.com/embed/x1hvDqNcnEk"
+                        title="The worst headphones I&#39;ve bought." frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen
+                    ></iframe>
+                    <div class="callout">
+                        <h1>
+                            If it runs on electricity there's a chance I'll yell at it.
+                        </h1>
+
+                        <a href="https://www.youtube.com/c/DankPods" target="_blank">
+                            <button mat-flat-button color="primary">
+                                Youtube
+                                <mat-icon>open_in_new</mat-icon>
+                            </button>
+                        </a>
+
+                        <button mat-flat-button color="primary" (click)="tabIndex = 1">
+                            Music Player
+                            <mat-icon>arrow_right</mat-icon>
+                        </button>
+                    </div>
+                </div>
+            </mat-tab>
+            <mat-tab class="musictab">
+                <app-music-library></app-music-library>
+            </mat-tab>
+        </mat-tab-group>
     </ng-container>
 </mat-drawer-container>

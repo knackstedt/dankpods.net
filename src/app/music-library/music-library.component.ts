@@ -7,13 +7,21 @@ import { ScrollingModule } from '@angular/cdk/scrolling';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialog } from '@angular/material/dialog';
 import { BehaviorSubject } from 'rxjs';
+import { AngularSplitModule } from 'angular-split';
+import { NgScrollbarModule } from 'ngx-scrollbar';
+import { ContextMenuItem, NgxContextMenuDirective, openContextMenu } from '@dotglitch/ngx-ctx-menu';
+import { TabulatorComponent } from 'src/app/components/tabulator/tabulator.component';
+import { VisualizerComponent } from 'src/app/music-library/visualizer/visualizer.component';
+import { Fetch } from 'src/app/services/fetch.service';
+import { CellComponent, EmptyCallback } from 'tabulator-tables';
+import { UrlSanitizer } from 'src/app/services/sanitizer.service';
 
 type AudioFile = {
     name: string,
     path: string,
     duration: number,
     images: string
-} & IAudioMetadata;
+};
 
 type AudioGroup = {
     image;
@@ -28,7 +36,6 @@ type AudioGroup = {
     styleUrls: ['./music-library.component.scss'],
     imports: [
         CommonModule,
-        WindowTemplateComponent,
         AngularSplitModule,
         NgScrollbarModule,
         NgxContextMenuDirective,
@@ -38,8 +45,8 @@ type AudioGroup = {
         MatIconModule,
         MatButtonModule,
         VisualizerComponent,
-        UrlSanitizer,
-        TabulatorComponent
+        TabulatorComponent,
+        UrlSanitizer
     ],
     standalone: true
 })
@@ -53,8 +60,6 @@ export class MusicLibraryComponent implements OnInit {
 
     @ViewChild("media") mediaRef: ElementRef;
     get mediaElement() { return this.mediaRef?.nativeElement as HTMLMediaElement; }
-
-    @Input() window: ManagedWindow;
 
     private _analyzer: AnalyserNode;
     get analyzer() { return this._analyzer; }
@@ -272,11 +277,13 @@ export class MusicLibraryComponent implements OnInit {
         private fetch: Fetch,
         private dialog: MatDialog
     ) {
-        this.fetch.get<AudioFile[]>('/api/music/library').then(items => {
+        // TODO: Replace this data call?
+        this.fetch.get<AudioFile[]>('/assets/library.json').then(items => {
+            if (!items) return;
             this.groupItems = [];
 
             items.forEach(item => {
-                const groupKey = item.common[this.groupMode] || "default";
+                const groupKey = item['common'][this.groupMode] || "default";
                 let group = this.groupItems.find(g => g.query == groupKey);
                 if (!group) {
                     this.groupItems.push(group = {
@@ -302,15 +309,21 @@ export class MusicLibraryComponent implements OnInit {
             this.tracks = this.groupItems[0].items;
         });
 
-        this.fetch.get<any>(`/api/data/os.music/queue`).then(({queue, index}) => {
-            this.queue = queue as any || [];
+
+        // TODO: Replace endpoint?
+        // this.fetch.get<any>(`/api/data/os.music/queue`).then(({queue, index}) => {
+        //     this.queue = queue as any || [];
+        //     this.queueIndex = index;
+
+        //     // Prevent invalid queue indexes.
+        //     if (this.queueIndex < 0) this.queueIndex = 0;
+        //     if (this.queueIndex > this.queue.length) this.queueIndex = 0;
+        // })
+        const { queue, index } = JSON.parse(localStorage['dp-music-queue'] || '{}');
+        if (queue) {
+            this.queue = queue;
             this.queueIndex = index;
-
-            // Prevent invalid queue indexes.
-            if (this.queueIndex < 0) this.queueIndex = 0;
-            if (this.queueIndex > this.queue.length) this.queueIndex = 0;
-        })
-
+        }
     }
 
     onRowCtx({ event, row }) {
@@ -326,7 +339,7 @@ export class MusicLibraryComponent implements OnInit {
     }
 
     getTrackPicture(item: AudioFile) {
-        return `/api/filesystem/download?path=${item.images[0]}`
+        return '/assets/music' + item.images[0];
     }
 
     numToString(num: number) {
@@ -349,7 +362,7 @@ export class MusicLibraryComponent implements OnInit {
     }
 
     getUrl(path: string) {
-        return "/api/filesystem/download?path=" + encodeURIComponent(path);
+        return '/assets/music' + path;
     }
 
     addTrack(item: AudioFile) {
@@ -409,7 +422,7 @@ export class MusicLibraryComponent implements OnInit {
     }
 
     saveQueue() {
-        this.fetch.post(`/api/data/os.music/queue`, {queue: this.queue, index: this.queueIndex})
+        localStorage['dp-music-queue'] = JSON.stringify({ queue: this.queue, index: this.queueIndex });
     }
 
     onResize() {
@@ -447,7 +460,7 @@ export class MusicLibraryComponent implements OnInit {
         }
 
         // Update media element's src
-        const url = `/api/filesystem/download?path=${this.currentTrack.path + this.currentTrack.name}`;
+        const url = `/assets/music${this.currentTrack.path + this.currentTrack.name}`;
         this.mediaElement.src = url;
 
         this.state = "playing";

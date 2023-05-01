@@ -15,8 +15,47 @@ html, body {
     width: 100%;
     overflow: hidden;
     font-family: 'Fira Sans', Arial;
+    text-rendering: geometricPrecision;
+    -webkit-font-smoothing: subpixel-antialiased;
 }
 
 * {
     box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+    background-color: #0000;
+    transition: transform 250ms ease;
+}
+
+::-webkit-scrollbar-thumb {
+    padding-right: 3px;
+    border-radius: 5px;
+    background-color: #505050;
+    transition: all 250ms ease;
+}
+
+::-webkit-scrollbar-track {
+    border-radius: 5px;
+    background-color: #0000;
+    transition: all 250ms ease;
+}
+
+::-webkit-scrollbar-corner {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+table {
+    border-collapse: collapse;
+}
+
+:root {
+    --dialog-background-color: #1b5e20;
+    --panel-background-color: #1b5e20;
+    --input-background-color: #1b5e20;
+    --table-row-hover-background-color: #1b5e20;
+    --table-row-alt-background-color: #1b5e20;
 }
