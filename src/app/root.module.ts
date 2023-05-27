@@ -15,7 +15,7 @@ import { RootComponent } from './root.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatTabsModule } from '@angular/material/tabs';
 
-import { MusicLibraryComponent } from '@dotglitch/ngx-web-components';
+// import { MusicLibraryComponent } from '@dotglitch/ngx-web-components';
 
 @NgModule({
     declarations: [
@@ -25,7 +25,7 @@ import { MusicLibraryComponent } from '@dotglitch/ngx-web-components';
         CommonModule,
         BrowserModule,
         BrowserAnimationsModule,
-        MusicLibraryComponent,
+        // MusicLibraryComponent,
         HttpClientModule,
         MatTabsModule,
         MatButtonModule,
