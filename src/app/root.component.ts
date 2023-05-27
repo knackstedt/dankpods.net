@@ -46,7 +46,10 @@ export class RootComponent {
     }
 
     openInfo() {
-        this.dialog.open(AboutComponent);
+        this.dialog.open(AboutComponent, {
+            maxHeight: "90vh",
+            maxWidth: "min(90vw, 960px)"
+        });
     }
 
 

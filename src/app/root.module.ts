@@ -13,8 +13,9 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 
 import { RootComponent } from './root.component';
 import { MatDialogModule } from '@angular/material/dialog';
-import { MusicLibraryComponent } from 'src/app/music-library/music-library.component';
 import { MatTabsModule } from '@angular/material/tabs';
+
+import { MusicLibraryComponent } from '@dotglitch/ngx-web-components';
 
 @NgModule({
     declarations: [

@@ -9,13 +9,16 @@
                 </a>
             </li>
         </ul>
-        <button mat-icon-button (click)="openInfo()" style="position: absolute; bottom: 16px; left: 16px;"><mat-icon>info</mat-icon></button>
+
+        <button mat-icon-button (click)="openInfo()" style="position: absolute; bottom: 16px; left: 16px;">
+            <mat-icon>info</mat-icon>
+        </button>
     </mat-drawer>
 
     <ng-container>
         <mat-toolbar>
             <img class="logo" src="assets/text.png" style="width: 140px">
-
+            <div class="fansite">Fansite.</div>
             <span style="flex: 1"></span>
 
             <ng-container *ngIf="!isDesktop">
@@ -36,8 +39,12 @@
         <mat-tab-group class="maintabs" [selectedIndex]="tabIndex">
             <mat-tab>
                 <div class="mainstage">
-                    <iframe width="1280" height="720" src="https://www.youtube.com/embed/x1hvDqNcnEk"
-                        title="The worst headphones I&#39;ve bought." frameborder="0"
+                    <iframe
+                        width="1280"
+                        height="720"
+                        src="https://www.youtube.com/embed/x1hvDqNcnEk"
+                        title="The worst headphones I&#39;ve bought."
+                        frameborder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                         allowfullscreen
                     ></iframe>
@@ -61,7 +68,7 @@
                 </div>
             </mat-tab>
             <mat-tab class="musictab">
-                <app-music-library></app-music-library>
+                <dg-music-library></dg-music-library>
             </mat-tab>
         </mat-tab-group>
     </ng-container>

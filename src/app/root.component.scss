@@ -25,6 +25,17 @@
     z-index: 1;
 }
 
+mat-toolbar {
+    position: relative;
+}
+
+.fansite {
+    position: absolute;
+    left: 150px;
+    bottom: 8px;
+    color: #121212;
+}
+
 mat-drawer-container {
     backdrop-filter: blur(5px);
     background-color: #0000;
