@@ -1,3 +1,13 @@
+:host {
+    display: block;
+    background-color: #eee;
+    // backdrop-filter: blur(20px);
+    border-radius: 7px;
+    padding: 24px;
+    overflow-y: auto;
+    max-height: 90vh;
+}
+
 a {
     text-decoration-color: #009688;
     color: #81c784;
