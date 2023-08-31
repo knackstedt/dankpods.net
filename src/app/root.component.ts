@@ -28,6 +28,7 @@ export class RootComponent {
         { url: "https://www.instagram.com/biteyfrank", label: "Frank" },
         { url: "https://discord.gg/BrssHgh6jP", label: "Discord" },
         { url: "https://www.youtube.com/channel/UCHdpnvKJDijKNe2caIasnww", label: "Garbage Time" },
+        { url: "https://www.youtube.com/@HelloImGaming", label: "Hello, I'm Gaming." },
         { url: "https://www.youtube.com/@thedrumthing4665", label: "The Drum Thing" },
         { url: "https://www.youtube.com/channel/UCfITAHFPUbFwCbMYrhMJJCw", label: "Dankmus" },
         { url: "https://www.youtube.com/@Games_for_James", label: "James"},
