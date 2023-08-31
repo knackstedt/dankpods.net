@@ -6,6 +6,7 @@ import { WallpaperService } from './services/wallpaper.service';
 import { MatDrawer } from '@angular/material/sidenav';
 import { MatDialog } from '@angular/material/dialog';
 import { AboutComponent } from './dialogs/about/about.component';
+import { UpdateService } from 'src/app/services/update.service';
 
 const desktopWidth = 1126;
 
@@ -41,7 +42,8 @@ export class RootComponent {
         private fetch: Fetch,
         private keyboard: KeyboardService,
         public wallpaper: WallpaperService,
-        private dialog: MatDialog
+        private dialog: MatDialog,
+        private update: UpdateService
     ) {
         this.onResize();
     }
