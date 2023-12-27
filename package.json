@@ -1,6 +1,6 @@
 {
   "name": "dankpods",
-  "version": "0.0.18",
+  "version": "0.0.19",
   "scripts": {
     "dev": "ng serve --port 4250 --ssl",
     "build:library": "ts-node --project ./tsconfig.json library-parser.ts",
