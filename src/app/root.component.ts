@@ -23,6 +23,7 @@ export class RootComponent {
     taskbarPosition: "top" | "right" | "bottom" | "left" = "left";
 
     readonly headLinks = [
+        { url: "https://dingusland.biz", label: "dingusland.biz (Official site)" },
         { url: "https://www.youtube.com/c/DankPods", label: "YouTube" },
         { url: "https://www.patreon.com/dankpods", label: "Patreon" },
         { url: "https://www.floatplane.com/channel/GarbageTime/home", label: "Floatplane" },
